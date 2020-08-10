@@ -4,26 +4,14 @@ using System.Text;
 
 namespace Alword.Algoexpert.Tier0
 {
-    public class BinaryTree
+    public class NodeDepthsTask
     {
-        public int value;
-        public BinaryTree left;
-        public BinaryTree right;
-
-        public BinaryTree(int value)
+        public static int NodeDepths(BinaryTree root)
         {
-            this.value = value;
-            this.left = null;
-            this.right = null;
-        }
-    }
-    public class BranchSumsTask
-    {
-        public static List<int> BranchSums(BinaryTree root)
-        {
-            List<int> reuslt = new List<int>();
+            int sum = 0;
             Stack<BinaryTree> points = new Stack<BinaryTree>();
             points.Push(root);
+            root.value = 0;
             while (points.Count > 0)
             {
                 var point = points.Pop();
@@ -31,18 +19,32 @@ namespace Alword.Algoexpert.Tier0
                 {
                     if (point.right != null)
                     {
-                        point.right.value += point.value;
+                        point.right.value = point.value + 1;
                         points.Push(point.right);
                     }
                     if (point.left != null)
                     {
-                        point.left.value += point.value;
+                        point.left.value = point.value + 1;
                         points.Push(point.left);
                     }
                 }
-                else reuslt.Add(point.value);
+                sum += point.value;
             }
-            return reuslt;
+            return sum;
+        }
+
+        public class BinaryTree
+        {
+            public int value;
+            public BinaryTree left;
+            public BinaryTree right;
+
+            public BinaryTree(int value)
+            {
+                this.value = value;
+                left = null;
+                right = null;
+            }
         }
     }
 }
