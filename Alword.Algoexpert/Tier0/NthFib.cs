@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Alword.Algoexpert.Tier0
 {
-    class DepthFirstSearchTask
+    class NthFib
     {
     }
 }
