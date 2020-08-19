@@ -13,14 +13,13 @@ namespace Alword.Algoexpert.Tier1
             while (queue.Count > 0)
             {
                 var (node, min, max) = queue.Dequeue();
+                if (node.value < min || node.value >= max) return false;
                 if (node.left != null)
                 {
-                    if (node.left.value >= node.value || node.left.value <= min) return false;
                     queue.Enqueue((node.left, min, node.value));
                 }
                 if (node.right != null)
                 {
-                    if (node.right.value < node.value || node.right.value > max) return false;
                     queue.Enqueue((node.right, node.value, max));
                 }
             }
