@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Alword.Algoexpert.Tier1
 {
-    public class VakudateBSDTask
+    public class ValidateBSDTask
     {
         public static bool ValidateBst(BST tree)
         {
